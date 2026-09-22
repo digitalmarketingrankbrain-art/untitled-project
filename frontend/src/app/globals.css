@@ -1,62 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  /* UASL (United Assessment Services Limited) Theme Palette */
-  --color-primary: #0b2341;
-  --color-primary-hover: #0056b3;
-  --color-secondary: #1e3a8a;
-  --color-accent: #d4af37;
-  --color-accent-hover: #b89628;
+  /* UASL (United Assessment Services Limited) Light Theme Palette */
+  --brand-primary: #0b2341;
+  --brand-primary-hover: #1e3a8a;
+  --brand-secondary: #0284c7;
+  --brand-accent: #d97706;
+  --brand-accent-hover: #b45309;
 
-  --color-background: #f8fafc;
-  --color-background-portal: #f1f5f9;
-  --color-surface: #ffffff;
+  --brand-background: #f8fafc;
+  --brand-background-portal: #f1f5f9;
+  --brand-surface: #ffffff;
 
-  --color-border: #e2e8f0;
-  --color-border-portal: #cbd5e1;
+  --brand-border: #e2e8f0;
+  --brand-border-portal: #cbd5e1;
 
-  --color-text: #0f172a;
-  --color-text-muted: #64748b;
-  --color-text-inverse: #ffffff;
+  --brand-text: #0f172a;
+  --brand-text-muted: #475569;
+  --brand-text-inverse: #ffffff;
 
-  --color-success-text: #166534;
-  --color-success-surface: #f0fdf4;
-  --color-warning-text: #9a3412;
-  --color-warning-surface: #fff7ed;
-  --color-error-text: #991b1b;
-  --color-error-surface: #fef2f2;
-  --color-info-text: #1e40af;
-  --color-info-surface: #eff6ff;
+  --brand-success-text: #166534;
+  --brand-success-surface: #f0fdf4;
+  --brand-warning-text: #9a3412;
+  --brand-warning-surface: #fff7ed;
+  --brand-error-text: #991b1b;
+  --brand-error-surface: #fef2f2;
+  --brand-info-text: #1e40af;
+  --brand-info-surface: #eff6ff;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-primary: var(--color-primary);
-  --color-primary-hover: var(--color-primary-hover);
-  --color-secondary: var(--color-secondary);
-  --color-accent: var(--color-accent);
-  --color-accent-hover: var(--color-accent-hover);
+@theme {
+  --color-primary: var(--brand-primary);
+  --color-primary-hover: var(--brand-primary-hover);
+  --color-secondary: var(--brand-secondary);
+  --color-accent: var(--brand-accent);
+  --color-accent-hover: var(--brand-accent-hover);
 
-  --color-background: var(--color-background);
-  --color-background-portal: var(--color-background-portal);
-  --color-surface: var(--color-surface);
+  --color-background: var(--brand-background);
+  --color-background-portal: var(--brand-background-portal);
+  --color-surface: var(--brand-surface);
 
-  --color-border: var(--color-border);
-  --color-border-portal: var(--color-border-portal);
+  --color-border: var(--brand-border);
+  --color-border-portal: var(--brand-border-portal);
 
-  --color-text: var(--color-text);
-  --color-text-muted: var(--color-text-muted);
-  --color-text-inverse: var(--color-text-inverse);
+  --color-text: var(--brand-text);
+  --color-text-muted: var(--brand-text-muted);
+  --color-text-inverse: var(--brand-text-inverse);
 
-  --color-success-text: var(--color-success-text);
-  --color-success-surface: var(--color-success-surface);
-  --color-warning-text: var(--color-warning-text);
-  --color-warning-surface: var(--color-warning-surface);
-  --color-error-text: var(--color-error-text);
-  --color-error-surface: var(--color-error-surface);
-  --color-info-text: var(--color-info-text);
-  --color-info-surface: var(--color-info-surface);
+  --color-success-text: var(--brand-success-text);
+  --color-success-surface: var(--brand-success-surface);
+  --color-warning-text: var(--brand-warning-text);
+  --color-warning-surface: var(--brand-warning-surface);
+  --color-error-text: var(--brand-error-text);
+  --color-error-surface: var(--brand-error-surface);
+  --color-info-text: var(--brand-info-text);
+  --color-info-surface: var(--brand-info-surface);
 
   --font-display: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -64,28 +64,30 @@
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-text);
+  background: var(--brand-background);
+  color: var(--brand-text);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* UASL Specific Styling */
+/* UASL Specific Styling - Light Theme */
 .uasl-header-topbar {
-  background-color: #081726;
-  color: #e2e8f0;
+  background-color: #f1f5f9;
+  color: #334155;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .uasl-header-main {
-  background-color: #0b2341;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .uasl-accent-gold {
-  color: #d4af37;
+  color: #d97706;
 }
 
 .uasl-bg-gold {
-  background-color: #d4af37;
+  background-color: #d97706;
 }
 
 .glass-panel {
@@ -96,14 +98,15 @@ body {
 }
 
 .glass-panel-dark {
-  background: rgba(11, 35, 65, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
 }
 
 .uasl-hero-banner {
-  background: linear-gradient(135deg, #0b2341 0%, #1e3a8a 60%, #0056b3 100%);
+  background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 60%, #ffffff 100%);
   position: relative;
   overflow: hidden;
 }
@@ -115,7 +118,7 @@ body {
   right: -20%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(0, 86, 179, 0.15) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(2, 132, 199, 0.06) 50%, transparent 70%);
   pointer-events: none;
 }
 

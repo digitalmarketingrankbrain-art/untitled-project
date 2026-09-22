@@ -153,7 +153,7 @@ export default function SaafDocumentsPage() {
         <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="border-b border-slate-200 bg-slate-900 text-white font-bold text-xs uppercase tracking-wider">
+              <thead className="border-b border-slate-200 bg-slate-100 text-slate-900 font-bold text-xs uppercase tracking-wider">
                 <tr>
                   <th className="py-3.5 px-4 sm:px-6">Doc Code</th>
                   <th className="py-3.5 px-4 sm:px-6">Document Title</th>

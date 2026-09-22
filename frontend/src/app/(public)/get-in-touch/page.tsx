@@ -14,18 +14,18 @@ export default function GetInTouchPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
-      <div className="bg-[#0b2341] text-white py-12 border-b border-blue-900">
+      <div className="bg-gradient-to-b from-slate-100 via-blue-50/40 to-white text-slate-900 py-12 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-slate-300 font-medium">
-            <Link href="/" className="hover:text-amber-400 transition-colors">Home</Link>
+          <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-slate-500 font-medium">
+            <Link href="/" className="hover:text-blue-700 transition-colors">Home</Link>
             <ChevronRight className="size-3 text-slate-400" />
-            <span className="text-amber-400 font-semibold">Get in Touch</span>
+            <span className="text-blue-900 font-bold">Get in Touch</span>
           </nav>
 
-          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+          <h1 className="text-3xl font-extrabold tracking-tight text-[#0b2341] sm:text-5xl">
             Get in Touch
           </h1>
-          <p className="mt-3 text-base text-slate-300 max-w-2xl mx-auto font-normal">
+          <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto font-normal">
             United Assessment Services Limited — Contact our team for inquiries, accreditation applications, or verification assistance.
           </p>
         </div>

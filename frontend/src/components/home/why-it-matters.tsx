@@ -28,7 +28,7 @@ function WhyItMatters() {
         
         {/* Left Visual Card */}
         <div className="lg:col-span-5">
-          <div className="relative min-h-[360px] overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-8 text-white">
+          <div className="relative min-h-[360px] overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900 via-blue-950 to-slate-900 border border-blue-900 p-8 text-white shadow-xl">
             <div className="pointer-events-none absolute -right-16 -top-16 opacity-40">
               <HeroMotif className="h-80 w-80" tone="dark" />
             </div>
@@ -41,7 +41,7 @@ function WhyItMatters() {
                 <p className="font-display text-2xl font-extrabold leading-snug text-white sm:text-3xl">
                   One Rigorous Standard. Total South Asian Acceptance.
                 </p>
-                <p className="mt-3 text-xs leading-relaxed text-blue-100/80">
+                <p className="mt-3 text-xs leading-relaxed text-blue-100/90 font-normal">
                   By adhering strictly to international evaluation protocols, SAAF eliminates technical barriers and fosters confidence across regional and global trade markets.
                 </p>
               </div>

@@ -155,7 +155,7 @@ export function PublicationListView({
                         e.preventDefault();
                         alert(`Downloading official document: ${item.code} - ${item.title}`);
                       }}
-                      className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-blue-700 transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-2 rounded-lg bg-[#0b2341] px-4 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-blue-900 transition-colors cursor-pointer"
                     >
                       <Download className="size-3.5" />
                       <span>Download {item.fileType}</span>

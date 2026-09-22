@@ -13,18 +13,18 @@ export default function HowToBecomeAccreditatedPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
-      <div className="bg-[#0b2341] text-white py-12 border-b border-blue-900">
+      <div className="bg-gradient-to-b from-slate-100 via-blue-50/40 to-white text-slate-900 py-12 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-slate-300 font-medium">
-            <Link href="/" className="hover:text-amber-400 transition-colors">Home</Link>
+          <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-slate-500 font-medium">
+            <Link href="/" className="hover:text-blue-700 transition-colors">Home</Link>
             <ChevronRight className="size-3 text-slate-400" />
-            <span className="text-amber-400 font-semibold">How to Become Accredited</span>
+            <span className="text-blue-900 font-bold">How to Become Accredited</span>
           </nav>
 
-          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+          <h1 className="text-3xl font-extrabold tracking-tight text-[#0b2341] sm:text-5xl">
             How to Become Accredited?
           </h1>
-          <p className="mt-3 text-base text-slate-300 max-w-3xl mx-auto font-normal">
+          <p className="mt-3 text-base text-slate-600 max-w-3xl mx-auto font-normal">
             A transparent 5-step accreditation process for Conformity Assessment Bodies (CABs).
           </p>
         </div>
@@ -34,8 +34,8 @@ export default function HowToBecomeAccreditatedPage() {
         <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-md">
           <div className="space-y-6">
             {steps.map((s) => (
-              <div key={s.step} className="flex gap-4 items-start p-4 rounded-xl border border-slate-100 bg-slate-50">
-                <span className="text-xl font-extrabold text-amber-500 bg-slate-900 px-3 py-1 rounded-lg">
+              <div key={s.step} className="flex gap-4 items-start p-4 rounded-xl border border-slate-200 bg-slate-50">
+                <span className="text-lg font-extrabold text-blue-900 bg-blue-100 border border-blue-200 px-3 py-1 rounded-lg">
                   {s.step}
                 </span>
                 <div>

@@ -5,14 +5,14 @@ import { ChevronRight, CreditCard, ShieldCheck } from "lucide-react";
 export default function FeeStructurePage() {
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
-      <div className="bg-[#0b2341] text-white py-12 border-b border-blue-900">
+      <div className="bg-gradient-to-b from-slate-100 via-blue-50/40 to-white text-slate-900 py-12 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-slate-300 font-medium">
-            <Link href="/" className="hover:text-amber-400 transition-colors">Home</Link>
+          <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-slate-500 font-medium">
+            <Link href="/" className="hover:text-blue-700 transition-colors">Home</Link>
             <ChevronRight className="size-3 text-slate-400" />
-            <span className="text-amber-400 font-semibold">Fee Structure</span>
+            <span className="text-blue-900 font-bold">Fee Structure</span>
           </nav>
-          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">Accreditation Fee Structure</h1>
+          <h1 className="text-3xl font-extrabold tracking-tight text-[#0b2341] sm:text-5xl">Accreditation Fee Structure</h1>
         </div>
       </div>
 
@@ -25,7 +25,7 @@ export default function FeeStructurePage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-slate-900 text-amber-400 font-bold border-b border-slate-700">
+                <tr className="bg-[#0b2341] text-white font-bold border-b border-slate-200">
                   <th className="p-3">Fee Category</th>
                   <th className="p-3">Description</th>
                   <th className="p-3">Schedule</th>

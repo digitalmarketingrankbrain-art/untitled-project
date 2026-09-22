@@ -12,11 +12,11 @@ function FinalCta() {
         <div className="flex flex-col items-center justify-between gap-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:flex-row lg:p-10">
           <div className="flex flex-col items-start gap-3">
             <SaafLogo variant="horizontal" size="lg" lightMode={false} />
-            <h2 className="mt-2 font-display text-2xl font-bold text-slate-900 sm:text-3xl">
-              Demonstrate Technical Competence Across South Asia
+            <h2 className="mt-2 font-display text-2xl font-extrabold text-[#0b2341] sm:text-3xl">
+              Demonstrate Technical Competence Worldwide
             </h2>
-            <p className="max-w-xl text-sm leading-relaxed text-slate-600">
-              Join leading testing laboratories, inspection bodies, and certification authorities accredited under the SAAF oversight framework.
+            <p className="max-w-xl text-sm leading-relaxed text-slate-600 font-normal">
+              Join leading testing laboratories, inspection bodies, and certification authorities accredited under the UASL independent assessment framework.
             </p>
           </div>
 
@@ -25,20 +25,20 @@ function FinalCta() {
               href="/apply"
               className={cn(
                 buttonVariants({ variant: "primary", size: "lg" }),
-                "bg-blue-600 text-white font-semibold hover:bg-blue-700 justify-center rounded-xl px-6"
+                "bg-[#0b2341] text-white font-bold hover:bg-blue-900 justify-center rounded-xl px-6 shadow-md"
               )}
             >
               <span>Apply for Accreditation</span>
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4 text-amber-400" />
             </Link>
             <Link
-              href="/verify"
+              href="/certifiedorganization"
               className={cn(
                 buttonVariants({ variant: "tertiary", size: "lg" }),
-                "border border-slate-200 text-slate-700 hover:bg-slate-50 justify-center rounded-xl px-5"
+                "border border-slate-300 text-slate-700 hover:bg-slate-50 justify-center rounded-xl px-5 font-semibold"
               )}
             >
-              <ShieldCheck className="size-4 text-blue-600" />
+              <ShieldCheck className="size-4 text-blue-700" />
               <span>Verify Register</span>
             </Link>
           </div>

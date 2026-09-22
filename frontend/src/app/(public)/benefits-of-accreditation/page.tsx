@@ -12,14 +12,14 @@ export default function BenefitsOfAccreditationPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
-      <div className="bg-[#0b2341] text-white py-12 border-b border-blue-900">
+      <div className="bg-gradient-to-b from-slate-100 via-blue-50/40 to-white text-slate-900 py-12 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-slate-300 font-medium">
-            <Link href="/" className="hover:text-amber-400 transition-colors">Home</Link>
+          <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-slate-500 font-medium">
+            <Link href="/" className="hover:text-blue-700 transition-colors">Home</Link>
             <ChevronRight className="size-3 text-slate-400" />
-            <span className="text-amber-400 font-semibold">Benefits of Accreditation</span>
+            <span className="text-blue-900 font-bold">Benefits of Accreditation</span>
           </nav>
-          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">Benefits of Accreditation</h1>
+          <h1 className="text-3xl font-extrabold tracking-tight text-[#0b2341] sm:text-5xl">Benefits of Accreditation</h1>
         </div>
       </div>
 
@@ -27,7 +27,7 @@ export default function BenefitsOfAccreditationPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {benefits.map((b) => (
             <div key={b.title} className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <CheckCircle2 className="size-8 text-amber-500 mb-3" />
+              <CheckCircle2 className="size-8 text-blue-700 mb-3" />
               <h3 className="text-lg font-bold text-slate-900 mb-2">{b.title}</h3>
               <p className="text-xs text-slate-600 leading-relaxed">{b.desc}</p>
             </div>
