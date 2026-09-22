@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 240" width="400" height="240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Top arc: Left to Right over top for SOUTH ASIA -->
+    <path id="saafTopArc" d="M 52 120 A 148 82 0 0 1 348 120" fill="none" />
+    <!-- Bottom arc: Left to Right under bottom for ACCREDITATION FOUNDATION -->
+    <path id="saafBottomArc" d="M 52 120 A 148 82 0 0 0 348 120" fill="none" />
+    <!-- Linear gradient for rich SAAF royal blue -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F52BA" />
+      <stop offset="50%" stop-color="#0B4DA2" />
+      <stop offset="100%" stop-color="#062863" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background outer border & ring -->
+  <ellipse cx="200" cy="120" rx="194" ry="114" fill="url(#blueGrad)" />
+  <ellipse cx="200" cy="120" rx="188" ry="108" fill="none" stroke="#FFFFFF" stroke-width="3" />
+  
+  <!-- Inner White Globe Container -->
+  <ellipse cx="200" cy="120" rx="150" ry="78" fill="#FFFFFF" stroke="url(#blueGrad)" stroke-width="2.5" />
+
+  <!-- Globe Wireframe Grid -->
+  <g stroke="#93C5FD" stroke-width="1.2" fill="none" opacity="0.85">
+    <!-- Outer boundary of globe -->
+    <ellipse cx="200" cy="120" rx="146" ry="74" />
+    <!-- Meridians -->
+    <ellipse cx="200" cy="120" rx="112" ry="74" />
+    <ellipse cx="200" cy="120" rx="72" ry="74" />
+    <ellipse cx="200" cy="120" rx="32" ry="74" />
+    <line x1="200" y1="46" x2="200" y2="194" stroke-width="1.5" />
+    <!-- Equator and Parallels -->
+    <line x1="54" y1="120" x2="346" y2="120" stroke-width="1.5" />
+    <path d="M 72 90 Q 200 68 328 90" />
+    <path d="M 88 70 Q 200 56 312 70" />
+    <path d="M 72 150 Q 200 172 328 150" />
+    <path d="M 88 170 Q 200 184 312 170" />
+  </g>
+
+  <!-- Curved Text: SOUTH ASIA (Top - Upright) -->
+  <text fill="#FFFFFF" font-size="24" font-weight="900" font-family="'Inter', 'IBM Plex Sans', system-ui, -apple-system, sans-serif" letter-spacing="4" dy="-2">
+    <textPath href="#saafTopArc" startOffset="50%" text-anchor="middle">
+      SOUTH ASIA
+    </textPath>
+  </text>
+
+  <!-- Center Text: SAAF -->
+  <text x="200" y="145" fill="#0B4DA2" font-size="78" font-weight="900" font-family="'Inter', 'IBM Plex Sans', system-ui, -apple-system, sans-serif" text-anchor="middle" letter-spacing="3">
+    SAAF
+  </text>
+
+  <!-- Curved Text: ACCREDITATION FOUNDATION (Bottom - Upright & Right Side Up) -->
+  <text fill="#FFFFFF" font-size="14.5" font-weight="800" font-family="'Inter', 'IBM Plex Sans', system-ui, -apple-system, sans-serif" letter-spacing="2" dy="16">
+    <textPath href="#saafBottomArc" startOffset="50%" text-anchor="middle">
+      ACCREDITATION FOUNDATION
+    </textPath>
+  </text>
+</svg>
