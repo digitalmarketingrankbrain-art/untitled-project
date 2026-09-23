@@ -4,27 +4,27 @@ import { cn } from "@/lib/utils";
 import { Spinner } from "./spinner";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-[6px] font-sans text-sm font-medium transition duration-150 active:scale-[0.98] active:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:active:scale-100",
+  "inline-flex items-center justify-center gap-2 rounded-lg font-sans text-sm font-semibold tracking-tight transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:active:scale-100 cursor-pointer select-none",
   {
     variants: {
       variant: {
-        primary: "bg-primary text-text-inverse hover:bg-primary-hover",
-        accent: "bg-accent text-primary hover:bg-accent-hover",
+        primary: "bg-slate-900 text-white shadow-xs hover:bg-slate-800 active:bg-slate-950",
+        accent: "bg-amber-600 text-white shadow-xs hover:bg-amber-700 active:bg-amber-800",
         secondary:
-          "border border-primary bg-surface text-primary hover:bg-background",
-        tertiary: "text-secondary underline-offset-4 hover:underline",
-        destructive: "bg-error-text text-text-inverse hover:opacity-90",
+          "border border-slate-300 bg-white text-slate-800 shadow-2xs hover:bg-slate-50 hover:border-slate-400 active:bg-slate-100",
+        tertiary: "text-sky-700 underline-offset-4 hover:underline hover:text-sky-800",
+        destructive: "bg-red-600 text-white shadow-xs hover:bg-red-700 active:bg-red-800",
         "destructive-outline":
-          "border border-error-text bg-surface text-error-text hover:bg-error-surface",
-        inverse: "bg-surface text-primary hover:bg-background focus-visible:ring-text-inverse",
+          "border border-red-200 bg-white text-red-700 shadow-2xs hover:bg-red-50 hover:border-red-300",
+        inverse: "bg-white text-slate-900 shadow-xs hover:bg-slate-100 focus-visible:ring-white",
         ghost:
-          "border border-text-inverse/40 text-text-inverse hover:bg-text-inverse/10 focus-visible:ring-text-inverse",
+          "border border-slate-200 bg-white/80 text-slate-700 hover:bg-slate-100/80 hover:text-slate-900",
       },
       size: {
-        default: "h-10 px-4",
+        default: "h-10 px-4 text-sm",
         sm: "h-8 px-3 text-xs",
-        md: "h-10 px-4",
-        lg: "h-12 px-6 text-base",
+        md: "h-10 px-4 text-sm",
+        lg: "h-11 px-6 text-base",
       },
     },
     defaultVariants: {

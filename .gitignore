@@ -3,6 +3,7 @@ node_modules/
 
 # next.js
 /frontend/.next/
+/frontend/.next-dev/
 /frontend/out/
 frontend/next-env.d.ts
 

@@ -32,6 +32,10 @@ export function findUserById(id: string): Promise<AuthUser | null> {
   return rpc(MODULE, "findUserById", [id]);
 }
 
+export function updateUserName(userId: string, name: string): Promise<AuthUser | null> {
+  return rpc(MODULE, "updateUserName", [userId, name]);
+}
+
 export function getAllUsers(): Promise<AuthUser[]> {
   return rpc(MODULE, "getAllUsers", []);
 }

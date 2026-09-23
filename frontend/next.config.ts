@@ -16,6 +16,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Keep live development and production builds from overwriting each other's manifests.
+  distDir: process.env.NODE_ENV === "development" ? ".next-dev" : ".next",
   // The apply page moved from /accreditation/apply to /apply; keep old links working.
   async redirects() {
     return [

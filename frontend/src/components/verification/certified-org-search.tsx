@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { COUNTRIES } from "@/lib/countries";
 import { CheckCircle2, AlertCircle, Building2 } from "lucide-react";
 import { CertificateModal, type CertificateData } from "./certificate-modal";
 
@@ -61,8 +63,14 @@ const CERTIFIED_ORGS_MOCK: CertifiedOrgRecord[] = [
 ];
 
 export function CertifiedOrgSearch() {
-  const [namePrefix, setNamePrefix] = useState("");
-  const [certNumber, setCertNumber] = useState("");
+  return <Suspense fallback={<p>Loading search...</p>}><CertifiedOrgSearchForm /></Suspense>;
+}
+
+function CertifiedOrgSearchForm() {
+  const params = useSearchParams();
+  const query = params.get("q") || "";
+  const [namePrefix, setNamePrefix] = useState(/\d/.test(query) ? "" : query.toUpperCase().slice(0, 3));
+  const [certNumber, setCertNumber] = useState(/\d/.test(query) ? query : "");
   const [country, setCountry] = useState("India");
   const [hasSearched, setHasSearched] = useState(false);
   const [results, setResults] = useState<CertifiedOrgRecord[]>([]);
@@ -116,13 +124,14 @@ export function CertifiedOrgSearch() {
             <div className="divide-y divide-slate-200">
               {/* Name Row */}
               <div className="grid grid-cols-1 sm:grid-cols-12 items-center p-3 gap-2 sm:gap-4">
-                <label className="sm:col-span-6 text-xs font-medium text-slate-700 px-2">
+                <label htmlFor="org-name" className="sm:col-span-6 text-xs font-medium text-slate-700 px-2">
                   Name(Enter first 3 Character of your company Name in Capital Letter)<span className="text-red-500">*</span>
                 </label>
                 <div className="sm:col-span-6">
                   <input
                     type="text"
                     maxLength={3}
+                    id="org-name"
                     value={namePrefix}
                     onChange={(e) => setNamePrefix(e.target.value.toUpperCase())}
                     placeholder="e.g. QCC or ABC"
@@ -133,13 +142,14 @@ export function CertifiedOrgSearch() {
 
               {/* Certificate Number Row */}
               <div className="grid grid-cols-1 sm:grid-cols-12 items-center p-3 gap-2 sm:gap-4">
-                <label className="sm:col-span-6 text-xs font-medium text-slate-700 px-2">
+                <label htmlFor="org-certificate" className="sm:col-span-6 text-xs font-medium text-slate-700 px-2">
                   Certificate Number<span className="text-red-500">*</span>
                 </label>
                 <div className="sm:col-span-6">
                   <input
                     type="text"
                     value={certNumber}
+                    id="org-certificate"
                     onChange={(e) => setCertNumber(e.target.value)}
                     placeholder="e.g. SAAF-9001-8841"
                     className="w-full rounded border border-slate-200 bg-white px-3 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
@@ -149,22 +159,17 @@ export function CertifiedOrgSearch() {
 
               {/* Country Row */}
               <div className="grid grid-cols-1 sm:grid-cols-12 items-center p-3 gap-2 sm:gap-4">
-                <label className="sm:col-span-6 text-xs font-medium text-slate-700 px-2">
+                <label htmlFor="org-country" className="sm:col-span-6 text-xs font-medium text-slate-700 px-2">
                   Country
                 </label>
                 <div className="sm:col-span-6">
                   <select
                     value={country}
+                    id="org-country"
                     onChange={(e) => setCountry(e.target.value)}
                     className="w-full rounded border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-900 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
                   >
-                    <option value="India">India</option>
-                    <option value="United States">United States</option>
-                    <option value="United Arab Emirates">United Arab Emirates</option>
-                    <option value="Pakistan">Pakistan</option>
-                    <option value="Bangladesh">Bangladesh</option>
-                    <option value="Sri Lanka">Sri Lanka</option>
-                    <option value="Nepal">Nepal</option>
+                    {COUNTRIES.map(item => <option key={item.code} value={item.name}>{item.name}</option>)}
                     <option value="all">All Countries</option>
                   </select>
                 </div>
@@ -185,6 +190,7 @@ export function CertifiedOrgSearch() {
       {/* Results Output Section */}
       {hasSearched && (
         <div className="space-y-4 pt-4">
+          <p className="text-sm text-slate-600">Demo results from sample records. This search is not connected to the live UASL register.</p>
           <h3 className="text-base font-bold text-slate-900">
             Certified Organization Results
           </h3>

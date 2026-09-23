@@ -35,7 +35,7 @@ function PortalSidebar({ items, sections }: PortalSidebarProps) {
 
   return (
     <nav className="sticky top-20 w-64 shrink-0 py-6 pr-5 hidden md:block">
-      <div className="rounded-2xl border border-slate-200/80 bg-white/90 p-3.5 shadow-xs backdrop-blur-sm space-y-4">
+      <div className="rounded-xl border border-slate-200/80 bg-white/95 p-3.5 shadow-xs backdrop-blur-xs space-y-4">
         {effectiveSections.map((section, idx) => (
           <div key={section.title ?? idx} className={cn(idx > 0 && "pt-3 border-t border-slate-100")}>
             {section.title && (
@@ -59,17 +59,17 @@ function PortalSidebar({ items, sections }: PortalSidebarProps) {
                     <Link
                       href={item.href}
                       className={cn(
-                        "group flex items-center justify-between rounded-xl px-3 py-2.5 font-sans text-xs sm:text-sm font-medium transition-all duration-200 relative",
+                        "group flex items-center justify-between rounded-lg px-3 py-2 font-sans text-xs sm:text-sm font-medium transition-all duration-150 relative",
                         active
-                          ? "bg-gradient-to-r from-blue-700 to-indigo-700 text-white shadow-md shadow-blue-900/15 font-semibold"
-                          : "text-slate-600 hover:bg-slate-100/80 hover:text-slate-900 hover:translate-x-0.5",
+                          ? "bg-slate-900 text-white shadow-2xs font-semibold"
+                          : "text-slate-600 hover:bg-slate-100/80 hover:text-slate-900",
                       )}
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
                         <item.icon
                           className={cn(
-                            "size-4 shrink-0 transition-transform duration-200 group-hover:scale-110",
-                            active ? "text-white" : "text-slate-400 group-hover:text-blue-700",
+                            "size-4 shrink-0 transition-transform duration-150 group-hover:scale-105",
+                            active ? "text-sky-400" : "text-slate-400 group-hover:text-slate-700",
                           )}
                           strokeWidth={2}
                         />
@@ -82,7 +82,7 @@ function PortalSidebar({ items, sections }: PortalSidebarProps) {
                             "ml-2 shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold tracking-tight font-mono",
                             active
                               ? "bg-white/20 text-white"
-                              : "bg-slate-100 text-slate-600 group-hover:bg-blue-50 group-hover:text-blue-700",
+                              : "bg-slate-100 text-slate-600 group-hover:bg-slate-200 group-hover:text-slate-800",
                           )}
                         >
                           {item.badge}

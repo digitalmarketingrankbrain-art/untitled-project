@@ -28,7 +28,7 @@ function Alert({ tone, title, className, children, ...props }: AlertProps) {
     <div
       role="alert"
       className={cn(
-        "flex gap-3 rounded-md border-l-4 px-4 py-3 font-sans text-sm",
+        "flex gap-3 rounded-xl border px-4 py-3.5 font-sans text-sm shadow-[0_4px_16px_rgba(7,26,47,.04)]",
         toneStyles[tone],
         className,
       )}

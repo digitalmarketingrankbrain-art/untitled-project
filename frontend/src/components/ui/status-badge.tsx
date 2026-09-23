@@ -12,11 +12,11 @@ import { cn } from "@/lib/utils";
 export type StatusTone = "success" | "warning" | "error" | "info" | "neutral";
 
 const toneStyles: Record<StatusTone, string> = {
-  success: "bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-xs",
-  warning: "bg-amber-50 text-amber-700 border border-amber-200/80 shadow-xs",
-  error: "bg-rose-50 text-rose-700 border border-rose-200/80 shadow-xs",
-  info: "bg-blue-50 text-blue-700 border border-blue-200/80 shadow-xs",
-  neutral: "bg-slate-100 text-slate-700 border border-slate-200/80 shadow-xs",
+  success: "bg-emerald-50/90 text-emerald-800 border border-emerald-200/90 shadow-2xs font-semibold",
+  warning: "bg-amber-50/90 text-amber-900 border border-amber-200/90 shadow-2xs font-semibold",
+  error: "bg-rose-50/90 text-rose-800 border border-rose-200/90 shadow-2xs font-semibold",
+  info: "bg-sky-50/90 text-sky-800 border border-sky-200/90 shadow-2xs font-semibold",
+  neutral: "bg-slate-100/90 text-slate-700 border border-slate-200/90 shadow-2xs font-semibold",
 };
 
 const toneIcons: Record<StatusTone, LucideIcon> = {

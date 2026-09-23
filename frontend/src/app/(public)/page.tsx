@@ -1,7 +1,6 @@
 import { Hero } from "@/components/home/hero";
 import { UaslHomeCards } from "@/components/home/uasl-home-cards";
 import { UaslAboutSection } from "@/components/home/uasl-about-section";
-import { FinalCta } from "@/components/home/final-cta";
 
 export default function Home() {
   return (
@@ -9,7 +8,6 @@ export default function Home() {
       <Hero />
       <UaslHomeCards />
       <UaslAboutSection />
-      <FinalCta />
     </>
   );
 }

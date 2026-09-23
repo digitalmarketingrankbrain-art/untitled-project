@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { COUNTRIES } from "@/lib/countries";
 import { ExternalLink } from "lucide-react";
 import { CertificateModal, type CertificateData } from "./certificate-modal";
 
@@ -81,10 +82,10 @@ const ACCREDITED_BODIES_MOCK: AccreditedBodyRecord[] = [
 ];
 
 export function AccreditedBodySearch() {
-  const [searchName, setSearchName] = useState("qcc");
-  const [searchCountry, setSearchCountry] = useState("India");
-  const [hasSearched, setHasSearched] = useState(true);
-  const [results, setResults] = useState<AccreditedBodyRecord[]>(ACCREDITED_BODIES_MOCK);
+  const [searchName, setSearchName] = useState("");
+  const [searchCountry, setSearchCountry] = useState("Afghanistan");
+  const [hasSearched, setHasSearched] = useState(false);
+  const [results, setResults] = useState<AccreditedBodyRecord[]>([]);
   const [selectedCert, setSelectedCert] = useState<CertificateData | null>(null);
 
   const handleSearch = (e: React.FormEvent) => {
@@ -121,9 +122,9 @@ export function AccreditedBodySearch() {
     <div className="space-y-8">
       {/* Search Container */}
       <div className="space-y-4">
-        <h2 className="text-lg font-bold text-slate-900 sm:text-xl">
+        <h1>
           Accredited Body
-        </h2>
+        </h1>
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-4xl">
           If you wish to check out the name of an Accredited Body to verify the accreditation criteria (Management System Standard / Product Certification / Personal Certification / Rating ), You may search as below:
         </p>
@@ -138,13 +139,14 @@ export function AccreditedBodySearch() {
             <div className="divide-y divide-slate-200">
               {/* Name Row */}
               <div className="grid grid-cols-1 sm:grid-cols-12 items-center p-3 gap-2 sm:gap-4">
-                <label className="sm:col-span-3 text-xs font-medium text-slate-700 px-2">
+                <label htmlFor="cab-name" className="sm:col-span-3 text-xs font-medium text-slate-700 px-2">
                   Name
                 </label>
                 <div className="sm:col-span-9">
                   <input
                     type="text"
                     value={searchName}
+                    id="cab-name"
                     onChange={(e) => setSearchName(e.target.value)}
                     placeholder="Enter CAB Name or keyword..."
                     className="w-full rounded border border-slate-200 bg-white px-3 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
@@ -154,23 +156,18 @@ export function AccreditedBodySearch() {
 
               {/* Country Row */}
               <div className="grid grid-cols-1 sm:grid-cols-12 items-center p-3 gap-2 sm:gap-4">
-                <label className="sm:col-span-3 text-xs font-medium text-slate-700 px-2">
+                <label htmlFor="cab-country" className="sm:col-span-3 text-xs font-medium text-slate-700 px-2">
                   Country
                 </label>
                 <div className="sm:col-span-9">
                   <select
                     value={searchCountry}
+                    id="cab-country"
                     onChange={(e) => setSearchCountry(e.target.value)}
                     className="w-full rounded border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-900 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600"
                   >
                     <option value="all">All Countries</option>
-                    <option value="India">India</option>
-                    <option value="United States">United States</option>
-                    <option value="United Arab Emirates">United Arab Emirates</option>
-                    <option value="Pakistan">Pakistan</option>
-                    <option value="Bangladesh">Bangladesh</option>
-                    <option value="Sri Lanka">Sri Lanka</option>
-                    <option value="Nepal">Nepal</option>
+                    {COUNTRIES.map(item => <option key={item.code} value={item.name}>{item.name}</option>)}
                   </select>
                 </div>
               </div>
@@ -190,6 +187,7 @@ export function AccreditedBodySearch() {
       {/* Results Table Section Matching Screenshot 1 */}
       {hasSearched && (
         <div className="space-y-3 pt-4">
+          <p className="text-sm text-slate-600">Demo results from sample records. This search is not connected to the live UASL register.</p>
           <h3 className="text-base font-bold text-slate-900">
             Accredited Body Results
           </h3>

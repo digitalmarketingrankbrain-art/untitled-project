@@ -1,33 +1,13 @@
-import React from "react";
-import Link from "next/link";
-import { ChevronRight, MessageSquare } from "lucide-react";
-
-export default function FeedbackPage() {
-  return (
-    <div className="bg-slate-50 min-h-screen pb-16">
-      <div className="bg-gradient-to-b from-slate-100 via-blue-50/40 to-white text-slate-900 py-12 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-slate-500 font-medium">
-            <Link href="/" className="hover:text-blue-700 transition-colors">Home</Link>
-            <ChevronRight className="size-3 text-slate-400" />
-            <span className="text-blue-900 font-bold">Feedback</span>
-          </nav>
-          <h1 className="text-3xl font-extrabold tracking-tight text-[#0b2341] sm:text-5xl">UASL Feedback & Appeals</h1>
-        </div>
-      </div>
-
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-md space-y-4 text-slate-700">
-          <p className="text-sm leading-relaxed">
-            UASL welcomes constructive feedback, service evaluations, and formal inquiries from CABs, certified client organizations, and public stakeholders.
-          </p>
-          <div className="pt-4">
-            <Link href="/get-in-touch" className="px-5 py-2.5 rounded-xl bg-[#0b2341] hover:bg-blue-900 text-white font-bold text-xs">
-              Submit Online Feedback
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+import { ReferenceContactForm } from "@/components/contact/reference-contact-form";
+export const metadata = { title:"Feedback | UASL" };
+export default function Page() {
+ return <article className="reference-container reference-content"><h1>Feedback and complaints</h1>
+ <p>UASL welcomes any comments or complaints in relation to the services we provide. It helps us to identify anything that we do well, or need to improve.</p>
+ <p>These services include the activities of Accredited Bodies.</p>
+ <p>UASL ensures that Accredited Bodies are taking action against complaints in a timely manner.</p>
+ <h2>How do I make a complaint?</h2>
+ <p>Complaints can be submitted through mail or email or fill below form.</p>
+ <p>You will receive an acknowledgment of your complaint within 15 working days if your comment or complaint is valid.</p>
+ <p>Your comment or complaint will be investigated and you will be informed of what action has taken place to all concerned. You will receive feedback on a regular basis until a complaint is resolved.</p>
+ <ReferenceContactForm feedback /></article>;
 }

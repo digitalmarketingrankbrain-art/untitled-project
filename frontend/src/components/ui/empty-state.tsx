@@ -22,17 +22,19 @@ function EmptyState({
   return (
     <div
       className={cn(
-        "flex flex-col items-center gap-3 rounded-lg border border-dashed border-border px-6 py-12 text-center",
+        "flex flex-col items-center gap-3 rounded-2xl border border-dashed border-slate-200/90 bg-slate-50/40 px-6 py-12 text-center shadow-2xs",
         className,
       )}
       {...props}
     >
-      <Icon className="size-8 text-text-muted" strokeWidth={1.5} />
-      <p className="font-sans text-base font-medium text-text">{title}</p>
+      <div className="flex size-12 items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-2xs text-slate-500">
+        <Icon className="size-6" strokeWidth={1.5} />
+      </div>
+      <p className="font-sans text-base font-bold text-slate-900 tracking-tight">{title}</p>
       {description && (
-        <p className="max-w-sm font-sans text-sm text-text-muted">{description}</p>
+        <p className="max-w-md font-sans text-sm text-slate-500 leading-relaxed">{description}</p>
       )}
-      {action}
+      {action && <div className="mt-2">{action}</div>}
     </div>
   );
 }

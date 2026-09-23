@@ -1,128 +1,24 @@
 "use client";
-
-import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, ShieldCheck, Globe, MapPin } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-import { FOOTER_GROUPS } from "@/lib/nav";
-import { SaafLogo } from "@/components/ui/saaf-logo";
-
-function Footer() {
-  const [openGroup, setOpenGroup] = React.useState<string | null>(null);
-
-  return (
-    <footer className="border-t border-slate-200 bg-slate-50 text-slate-700">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-4 flex flex-col justify-between">
-            <div>
-              <div className="mb-4">
-                <SaafLogo variant="horizontal" size="md" lightMode={false} />
-              </div>
-              <p className="text-xs leading-relaxed text-slate-600 font-normal">
-                UASL is an independent, impartial assessment body responsible for providing assessment of conformity assessment bodies (CABs) in the fields of Management System Certification (ISO 9001, ISO 14001, ISO 27001 etc.), Product Certification, Personnel Certification, Inspection, and Rating.
-              </p>
-            </div>
-
-            <div className="mt-6 space-y-2 text-xs text-slate-600">
-              <div className="flex items-start gap-2">
-                <MapPin className="size-4 shrink-0 text-blue-700 mt-0.5" />
-                <span>UASL is a company registered in England and Wales (No. 08283067).</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Globe className="size-4 shrink-0 text-blue-700" />
-                <span>Global Assessment & Accreditation Services</span>
-              </div>
-            </div>
-
-            {/* ISO Standard Compliance Badge */}
-            <div className="mt-4 flex items-center gap-2.5 rounded-lg border border-slate-200 bg-white p-3 shadow-xs">
-              <ShieldCheck className="size-5 shrink-0 text-blue-700" />
-              <span className="text-[11px] font-semibold text-slate-800 leading-tight">
-                Demonstrating competence and independence of CABs worldwide since 1992.
-              </span>
-            </div>
-          </div>
-
-          {/* Links Columns Grid */}
-          <div className="hidden grid-cols-2 md:grid-cols-4 gap-6 lg:col-span-8 sm:grid">
-            {FOOTER_GROUPS.map((group) => (
-              <div key={group.label} className="flex flex-col">
-                <p className="mb-3 text-[11px] font-extrabold uppercase tracking-wider text-blue-950 border-b border-slate-200 pb-2">
-                  {group.label}
-                </p>
-                <ul className="flex flex-col gap-2">
-                  {group.links.map((link) => (
-                    <li key={link.href + link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-[12px] font-medium text-slate-600 transition-colors hover:text-blue-800 leading-tight block"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile Accordion */}
-          <div className="flex flex-col divide-y divide-slate-200 border-y border-slate-200 lg:hidden">
-            {FOOTER_GROUPS.map((group) => {
-              const isOpen = openGroup === group.label;
-              return (
-                <div key={group.label}>
-                  <button
-                    aria-expanded={isOpen}
-                    onClick={() => setOpenGroup(isOpen ? null : group.label)}
-                    className="flex w-full items-center justify-between py-3 text-xs font-bold text-slate-800"
-                  >
-                    <span>{group.label}</span>
-                    <ChevronDown
-                      className={cn("size-3.5 text-blue-700 transition-transform", isOpen && "rotate-180")}
-                    />
-                  </button>
-                  {isOpen && (
-                    <ul className="flex flex-col gap-2 pb-3 pl-2">
-                      {group.links.map((link) => (
-                        <li key={link.href + link.label}>
-                          <Link
-                            href={link.href}
-                            className="text-xs text-slate-600 hover:text-blue-800"
-                          >
-                            {link.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Legal & Copyright Bar */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 text-[11px] text-slate-500 sm:flex-row">
-          <p className="font-normal" suppressHydrationWarning>
-            Copyright © {new Date().getFullYear()} UASL – United Assessment Services Limited. All Rights Reserved.
-          </p>
-          <div className="flex flex-wrap items-center gap-3 font-medium">
-            <Link href="/legal/terms-of-use" className="hover:text-blue-800 transition-colors">Terms of Use</Link>
-            <span className="text-slate-300">|</span>
-            <Link href="/legal/cookie-policy" className="hover:text-blue-800 transition-colors">Cookie Policy</Link>
-            <span className="text-slate-300">|</span>
-            <Link href="/legal/privacy-policy" className="hover:text-blue-800 transition-colors">Privacy Policy</Link>
-            <span className="text-slate-300">|</span>
-            <Link href="/legal/disclaimer" className="hover:text-blue-800 transition-colors">Disclaimer</Link>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+import { ChevronUp } from "lucide-react";
+const columns = [
+  { title: "About", links: [["Information Center","information-center"],["Use of Logo","use-of-logo"],["Feedback","feedback"],["Members","members"]] },
+  { title: "", links: [["Certified Organization","certifiedorganization"],["Careers","careers"]] },
+  { title: "Accreditation", links: [["What is Accreditation","what-is-accreditation"],["How to become accreditated","how-to-become-accreditated"],["Benefits of accreditation","benefits-of-accreditation"],["Management System Certification","management-system-certification"]] },
+  { title: "", links: [["Product Certification","product-certification"],["Personal Certification","personal-certification"],["Inspection","inspection"],["Rating","rating"],["Fees & Structure","fee-structure"],["Accredited Body","accredited-body"]] },
+];
+export function Footer() {
+  return <footer className="reference-footer">
+    <div className="reference-container reference-footer-grid">
+      <Link href="/" aria-label="UASL home"><Image src="/images/uasl/footer.jpeg" width={100} height={170} alt="United Assessment Services Limited" /></Link>
+      {columns.map((column,index) => <div key={index}>{column.title && <h2>{column.title}</h2>}<ul>{column.links.map(([label,href]) => <li key={href}><Link href={"/"+href}>{label}</Link></li>)}</ul></div>)}
+    </div>
+    <div className="reference-footer-bottom">
+      <p>Copyright © 2018 UASL <span>|</span> <Link href="/legal/terms-of-use">Terms of Use</Link> <span>|</span> <Link href="/legal/cookie-policy">Cookie Policy</Link> <span>|</span> <Link href="/legal/privacy-policy">Privacy Policy</Link> <span>|</span> <Link href="/legal/disclaimer">Disclaimer</Link></p>
+      <p>UASL is a company registered in England and Wales (No. 08283067).</p>
+      <button onClick={() => window.dispatchEvent(new Event("uasl-cookie-settings"))} className="underline">Cookie settings</button>
+    </div>
+    <button className="reference-back-top" aria-label="Scroll to top" onClick={() => window.scrollTo({top:0,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth"})}><ChevronUp size={20} /></button>
+  </footer>;
 }
-
-export { Footer };

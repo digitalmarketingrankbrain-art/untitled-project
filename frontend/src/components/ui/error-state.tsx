@@ -26,18 +26,20 @@ function ErrorState({
     <div
       role="alert"
       className={cn(
-        "flex flex-col items-center gap-3 rounded-lg border border-error-text/30 bg-error-surface px-6 py-12 text-center",
+        "flex flex-col items-center gap-3 rounded-2xl border border-rose-200/90 bg-rose-50/40 px-6 py-12 text-center shadow-2xs",
         className,
       )}
       {...props}
     >
-      <AlertOctagon className="size-8 text-error-text" strokeWidth={1.5} />
-      <p className="font-sans text-base font-medium text-error-text">{title}</p>
+      <div className="flex size-12 items-center justify-center rounded-2xl bg-white border border-rose-200 shadow-2xs text-rose-600">
+        <AlertOctagon className="size-6" strokeWidth={1.75} />
+      </div>
+      <p className="font-sans text-base font-bold text-rose-900 tracking-tight">{title}</p>
       {description && (
-        <p className="max-w-sm font-sans text-sm text-text">{description}</p>
+        <p className="max-w-md font-sans text-sm text-slate-700 leading-relaxed">{description}</p>
       )}
       {onRetry && (
-        <Button variant="destructive-outline" size="sm" onClick={onRetry}>
+        <Button variant="destructive-outline" size="sm" onClick={onRetry} className="mt-2">
           {retryLabel}
         </Button>
       )}

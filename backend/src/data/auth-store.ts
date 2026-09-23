@@ -47,22 +47,14 @@ const fallbackUsers = new Map<string, AuthUser>([
   ],
 ]);
 
-function getOrCreateFallbackUser(email: string): AuthUser {
+function getFallbackUser(email: string): AuthUser | null {
   const norm = normalizeEmail(email);
   const existing = fallbackUsers.get(norm);
   if (existing) return existing;
-
-  const newUser: AuthUser = {
-    id: `user-${Date.now()}`,
-    email: norm,
-    name: norm.split("@")[0] || "User",
-    primaryRole: "APPLICANT",
-    status: "ACTIVE",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  };
-  fallbackUsers.set(norm, newUser);
-  return newUser;
+  // Never auto-provision users when the database is unavailable. An applicant
+  // must first be approved by an administrator; otherwise an arbitrary email
+  // could bypass the application workflow in local/demo mode.
+  return null;
 }
 
 
@@ -71,7 +63,7 @@ export async function findUserByEmail(email: string): Promise<AuthUser | null> {
     return await prisma.user.findFirst({ where: { email: { equals: email, mode: "insensitive" } } });
   } catch (err) {
     console.warn("[auth-store] DB unreachable, using fallback user store for:", email);
-    return getOrCreateFallbackUser(email);
+    return getFallbackUser(email);
   }
 }
 
@@ -83,6 +75,20 @@ export async function findUserById(id: string): Promise<AuthUser | null> {
       if (u.id === id) return u;
     }
     return null;
+  }
+}
+
+export async function updateUserName(userId: string, name: string): Promise<AuthUser | null> {
+  const trimmed = name.trim();
+  if (trimmed.length < 2 || trimmed.length > 120) throw new Error("Name must be between 2 and 120 characters.");
+  try {
+    return await prisma.user.update({ where: { id: userId }, data: { name: trimmed } });
+  } catch {
+    const user = [...fallbackUsers.values()].find((candidate) => candidate.id === userId);
+    if (!user) return null;
+    user.name = trimmed;
+    user.updatedAt = new Date();
+    return user;
   }
 }
 
@@ -218,4 +224,3 @@ export async function consumeLoginOtp(email: string, code: string): Promise<bool
   fallbackOtps.delete(key);
   return true;
 }
-

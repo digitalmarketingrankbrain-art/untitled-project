@@ -12,9 +12,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         ref={ref}
         aria-invalid={invalid || undefined}
         className={cn(
-          "h-10 w-full rounded-[6px] border bg-surface px-3 font-sans text-sm text-text placeholder:text-text-muted",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1",
-          invalid ? "border-error-text" : "border-border",
+          "h-10 w-full rounded-lg border bg-white px-3.5 font-sans text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-150 shadow-2xs",
+          "focus-visible:outline-none focus-visible:border-sky-600 focus-visible:ring-3 focus-visible:ring-sky-500/15",
+          invalid ? "border-red-500 focus-visible:border-red-600 focus-visible:ring-red-500/15" : "border-slate-300/90 hover:border-slate-400",
           className,
         )}
         {...props}
